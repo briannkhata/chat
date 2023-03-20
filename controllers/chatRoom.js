@@ -1,7 +1,13 @@
-export default {
-    initiate: async (req, res) => { },
-    postMessage: async (req, res) => { },
-    getRecentConversation: async (req, res) => { },
-    getConversationByRoomId: async (req, res) => { },
-    markConversationReadByRoomId: async (req, res) => { },
-  }
+const initiate = async (req, res) => {};
+const postMessage = async (req, res) => {};
+const getRecentConversation = async (req, res) => {};
+const getConversationByRoomId = async (req, res) => {};
+const markConversationReadByRoomId = async (req, res) => {};
+
+module.exports = {
+  initiate,
+  postMessage,
+  getRecentConversation,
+  getConversationByRoomId,
+  markConversationReadByRoomId,
+};

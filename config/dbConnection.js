@@ -1,9 +1,7 @@
-import mongoose from 'mongoose'
-import config from './db.js'
+const mongoose  = require('mongoose');
+const CONNECTION_URL = process.env.MONGODB_URL
 
-const CONNECTION_URL = `mongodb://${config.db.url}/${config.db.name}`
-
-mongoose.connect(CONNECTION_URL, {
+mongoose.connect('mongodb://localhost:27017/chatdb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

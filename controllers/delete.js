@@ -1,4 +1,7 @@
-export default {
-    deleteRoomById: async (req, res) => {},
-    deleteMessageById: async (req, res) => {},
-  }
+const deleteRoomById = async (req, res) => {};
+const deleteMessageById = async (req, res) => {};
+
+module.exports = {
+  deleteRoomById,
+  deleteMessageById,
+};

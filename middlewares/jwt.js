@@ -1,5 +1,9 @@
-import jwt from 'jsonwebtoken';
+const jwt = require("jsonwebtoken");
 
-export const decode = (req, res, next) => {}
+const decode = (req, res, next) => {};
+const encode = async (req, res, next) => {};
 
-export const encode = async (req, res, next) => {}
+module.exports = {
+  decode,
+  encode,
+};

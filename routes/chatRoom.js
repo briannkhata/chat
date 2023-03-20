@@ -1,5 +1,5 @@
-import express from 'express';
-import chatRoom from '../controllers/chatRoom.js';
+const express =  require('express');
+const chatRoom = require('../controllers/chatRoom.js');
 
 const router = express.Router();
 
@@ -10,4 +10,4 @@ router
   .post('/:roomId/message', chatRoom.postMessage)
   .put('/:roomId/mark-read', chatRoom.markConversationReadByRoomId)
 
-export default router;
+  module.exports = router;

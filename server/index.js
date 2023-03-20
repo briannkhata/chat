@@ -1,14 +1,16 @@
-import http from "http";
-import express from "express";
-import logger from "morgan";
-import cors from "cors";
+//import http from "http";
+const express = require("express");
+const logger = require("morgan");
+const cors = require("cors");
 
-import indexRouter from "./routes/index.js";
-import userRouter from "./routes/user.js";
-import chatRoomRouter from "./routes/chatRoom.js";
-import deleteRouter from "./routes/delete.js";
+const db = require("../config/dbConnection.js");
 
-import { decode } from './middlewares/jwt.js'
+const indexRouter = require("../routes/index.js");
+const userRouter = require("../routes/user.js");
+const chatRoomRouter = require("../routes/chatRoom.js");
+const deleteRouter = require("../routes/delete.js");
+
+const { decode } = require("../middlewares/jwt.js");
 
 const app = express();
 
@@ -24,16 +26,15 @@ app.use("/users", userRouter);
 app.use("/room", decode, chatRoomRouter);
 app.use("/delete", deleteRouter);
 
-
-app.use('*', (req, res) => {
+app.use("*", (req, res) => {
   return res.status(404).json({
     success: false,
-    message: 'API endpoint doesnt exist'
-  })
+    message: "API endpoint doesnt exist",
+  });
 });
 
-const server = http.createServer(app);
-server.listen(port);
-server.on("listening", () => {
-  console.log(`Listening on port:: http://localhost:${port}/`)
+//const server = http.createServer(app);
+//server.listen(port);
+app.listen(port, (req, res) => {
+  console.log(`Listening on port:: http://localhost:${port}/`);
 });
